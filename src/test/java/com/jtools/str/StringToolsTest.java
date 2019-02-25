@@ -21,7 +21,21 @@ public class StringToolsTest {
         //System.out.println(StringTools.len(null));
 
         //System.out.println("abcde".indexOf(0,2));
-        System.out.println(StringTools.indexOf("abcdefg","d"));
+        //System.out.println(StringTools.indexOf("abcdefg","d"));
+
+        //System.out.println(StringTools.addStr("abcde").append("fgh").append("ijklmn"));
+
+        //StringFormat sf = StringTools.addStr("123456",",");
+        //System.out.println(sf.getStr());
+        StringTools st = new StringTools();
+        StringBuffer stringBuffer = new StringBuffer();
+        StringFormat sf = st
+                .addStr("123",",")
+                .addStr("456",",")
+                .addStr("大家好");
+        System.out.println(sf.toString());
+
+        System.out.println(StringTools.positiveToHanStr(10));
     }
 
 

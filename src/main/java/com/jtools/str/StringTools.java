@@ -6,8 +6,7 @@ package com.jtools.str;
  * @Description TODO
  * @Date
  **/
-public class StringTools {
-
+public class StringTools extends StringFormat {
 
     /**
      * --------------------------------------------基本封装开始---------------------------------------------------------
@@ -168,6 +167,36 @@ public class StringTools {
     /**
      * --------------------------------------------基本封装结束---------------------------------------------------------
      */
+
+
+    /**
+     *
+     * @param str  字符串
+     * @param args 字符串之间的分隔符
+     * @return
+     */
+    @Override
+    public StringFormat addStr(Object str,String...args) {
+        return super.addStr(str,args);
+    }
+
+    /**
+     * 数字(一位数)转大写 后期需要改变
+     * @param num
+     * @return
+     */
+    public static String positiveToHanStr(int num) {
+        /**
+         * 遍历枚举
+         */
+        for (StringEnum stringEnum:StringEnum.values()) {
+            if (isEquals(stringEnum.getAbbreviation(),String.valueOf(num))) {
+                return stringEnum.getTraditional();
+            }
+
+        }
+        return "";
+    }
 
 
 

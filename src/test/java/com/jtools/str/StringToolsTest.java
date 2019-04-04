@@ -28,7 +28,6 @@ public class StringToolsTest {
         //StringFormat sf = StringTools.addStr("123456",",");
         //System.out.println(sf.getStr());
         StringTools st = new StringTools();
-        StringBuffer stringBuffer = new StringBuffer();
         StringFormat sf = st
                 .addStr("123",",")
                 .addStr("456",",")

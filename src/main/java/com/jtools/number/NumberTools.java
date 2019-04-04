@@ -8,8 +8,6 @@ import com.jtools.number.asmd.OperationSub;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import static java.math.BigDecimal.ROUND_UNNECESSARY;
-
 /**
  * @author yi
  * @ClassName NumberTools
@@ -67,43 +65,64 @@ public class NumberTools {
      * 请见:BigDecimal 2512行 jdk version:1.8.0_121
      *
      */
-    public static Object setScale(double num,int scale) {
+    public static BigDecimal setScale(double num,int scale) {
 
         return setScale(num,scale,RoundingMode.UNNECESSARY);
 
 
     }
 
-
     /**
-     * 保留几位小数
+     *
+     * @param num   数字
+     * @param scale 保留几位
+     * @param rmode 进位类型
+     * @return
      */
-    public static Object setScale(double num,int scale,RoundingMode rmode) {
+    public static BigDecimal setScale(double num,int scale,RoundingMode rmode) {
         BigDecimal bd = new BigDecimal(num);
+        BigDecimal result = null;
+
         switch (rmode){
             case UP:
-                return bd.setScale(scale, RoundingMode.UP);
+                result = bd.setScale(scale, RoundingMode.UP);
+                 break;
             case DOWN:
-                return bd.setScale(scale,RoundingMode.DOWN);
+                result = bd.setScale(scale,RoundingMode.DOWN);
+                break;
             case FLOOR:
-                return bd.setScale(scale,RoundingMode.FLOOR);
+                result = bd.setScale(scale,RoundingMode.FLOOR);
+                 break;
             case CEILING:
-                return bd.setScale(scale,RoundingMode.CEILING);
+                result = bd.setScale(scale,RoundingMode.CEILING);
+                 break;
             case HALF_UP:
-               return bd.setScale(scale,RoundingMode.HALF_UP).doubleValue();
+                result = bd.setScale(scale,RoundingMode.HALF_UP);
+                break;
             case HALF_DOWN:
-               return bd.setScale(scale,RoundingMode.HALF_DOWN);
+                result = bd.setScale(scale,RoundingMode.HALF_DOWN);
+                break;
             case HALF_EVEN:
-               return bd.setScale(scale,RoundingMode.HALF_EVEN);
+                result = bd.setScale(scale,RoundingMode.HALF_EVEN);
+                break;
             case UNNECESSARY:
-               return bd.setScale(scale,RoundingMode.UNNECESSARY);
+                result = bd.setScale(scale,RoundingMode.UNNECESSARY);
+                break;
                default:
-                   return 0;
+                   return null;
 
         }
 
+        return result;
 
     }
+
+
+
+
+
+
+
 
 
 }

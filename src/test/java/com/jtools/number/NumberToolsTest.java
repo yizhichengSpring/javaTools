@@ -1,5 +1,6 @@
 package com.jtools.number;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class NumberToolsTest {
@@ -8,7 +9,10 @@ public class NumberToolsTest {
 //               NumberTools.calculator(1.0,0,OperateEnum.DIV)
 //       );
 
-        System.out.println(NumberTools.setScale(1352.125,2));
+        double value =  NumberTools.setScale(1352.125,2).doubleValue();
+//        BigDecimal bd = new BigDecimal(134.11);
+//        bd.setScale(1);
+        System.out.println(value);
     }
 
 }
